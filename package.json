@@ -1,0 +1,14 @@
+{
+  "name": "passwordarmor",
+  "version": "0.0.1",
+  "description": "Library for validating different password complexities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "broklyn & d33ma",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
