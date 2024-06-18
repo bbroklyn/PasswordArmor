@@ -1,13 +1,9 @@
 {
 	"compilerOptions": {
-		"module": "ESNext",
-		"target": "ESNext",
-		"strict": true,
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true,
+		"module": "commonjs",
+		"target": "es2019",
+		"declaration": true,
 		"outDir": "./dist"
 	},
-	"include": ["src/**/*"],
-	"exclude": ["node_modules", "dist"]
+	"include": ["src/**/*"]
 }

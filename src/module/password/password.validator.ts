@@ -1,6 +1,6 @@
 import { validationConfig } from './password.module.js'
 
-interface ValidationResult {
+export interface ValidationResult {
 	isValid: boolean
 	errors: string[]
 }
