@@ -209,6 +209,7 @@ export const emailConfig = {
 - [ ] Mail Validation
 - [x] Mailbox Generation with Customization
 - [ ] Generating random people cards in the form of json
+- [ ]
 
 ### Contributing
 
