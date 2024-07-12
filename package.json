@@ -1,6 +1,6 @@
 {
 	"name": "passwordarmor",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"files": [
@@ -9,7 +9,8 @@
 	"scripts": {
 		"compile": "tsc",
 		"test": "mocha ./dist/test/**/*.test.js",
-		"build": "npm run compile && npm run test"
+		"build": "npm run compile && npm run test",
+		"publish": "npm publish"
 	},
 	"devDependencies": {
 		"@types/chai": "^4.2.22",

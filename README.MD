@@ -7,6 +7,9 @@ PasswordArmor is a TypeScript library for generating and validating passwords wi
 - Generate random passwords with specified length and character requirements.
 - Validate passwords against custom rules such as minimum length, maximum length, presence of digits, special characters, uppercase letters, and more.
 - Easily extendable with additional validation rules.
+- **Generate random email addresses** with customizable options.
+
+PasswordArmor includes functionality to generate random email addresses using the `EmailGenerator` class. You can set the length of the local part, specify the domain, and define the top-level domain (TLD) to create customized email addresses. This feature is useful for applications requiring temporary or random email address generation, such as testing environments or user registration simulations.
 
 ## Installation
 
@@ -154,9 +157,57 @@ const isValid = schema.validate('StrongPass123!')
 console.log(isValid) // true
 ```
 
+### Generating Email Addresses
+
+- PasswordArmor provides functionality to generate email addresses with customizable options using the EmailGenerator class.
+
+```ts
+import { EmailGenerator } from 'passwordarmor'
+
+// Create an email generator instance
+const emailGenerator = new EmailGenerator()
+
+// Generate a random email address with default settings
+const email = emailGenerator.generate()
+console.log(email) // Example output: 'randomstring@example.com'
+
+// Generate a custom email address
+const customEmail = emailGenerator
+	.setLength(10) // Set the length of the local part
+	.at('customdomain') // Set the domain
+	.end('org') // Set the TLD
+	.generate()
+console.log(customEmail) // Example output: 'custom1234@customdomain.org'
+```
+
+### Email configuration
+
+- You can edit configuration at `module/email/email.module.ts`
+
+```ts
+export const emailConfig = {
+	DEFAULT_LENGTH: 10,
+	DEFAULT_DOMAIN: 'example',
+	DEFAULT_TLD: 'com',
+	characters: 'abcdefghijklmnopqrstuvwxyz0123456789',
+	error: {
+		length: 'Length should be a valid positive number',
+		domain: 'Domain should be a valid string',
+		tld: 'TLD should be a valid string',
+		invalidLocalPart: 'Local part should be a valid string',
+	},
+	regex: {
+		domain: /^[a-zA-Z0-9.-]+$/,
+		localPart: /^[a-zA-Z0-9._%+-]+$/,
+		tld: /^[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*$/,
+	},
+}
+```
+
 ### TODO:
 
-- [ ] Mail Validation & Mailbox Generation with Customization
+- [ ] Mail Validation
+- [x] Mailbox Generation with Customization
 - [ ] Generating random people cards in the form of json
 
 ### Contributing
